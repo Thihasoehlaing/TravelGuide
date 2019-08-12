@@ -4,15 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Admin;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Model\Admin;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends BaseController
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/admin/dashboard';
+    protected $redirectTo = '/home';
 
     public function loginValidation(Request $request)
     {
@@ -25,11 +25,14 @@ class LoginController extends BaseController
     public function loginAttempt($request)
     {
         $admin = Admin::first();
-        
         if ($admin) {
             if (Hash::check($request->password, $admin->password)) {
-                $this->clearLoginAttempts($request);   
+                $this->clearLoginAttempts($request);
+                //dd(auth('admin')->check());
+                //dd($admin);
                 auth('admin')->login($admin);
+                //dd(auth('admin')->user());
+                //dd($admin);
                 return $admin;
             }
         }
@@ -42,9 +45,9 @@ class LoginController extends BaseController
     }
 
     //getloginform//
-    public function GetLogin()
+    public function getLogin()
     {
-        return view('Admin.auth.login');
+        return $this->view('Admin.auth.login');
     }
 
     ///login///
@@ -62,7 +65,7 @@ class LoginController extends BaseController
         }
 
         $attemptUser = $this->loginAttempt($request);
-        // dd($attemptUser);
+        //dd($attemptUser);
         if ($attemptUser) {
             return $this->loginResponse();
         }
