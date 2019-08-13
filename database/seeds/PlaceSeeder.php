@@ -15,10 +15,13 @@ class PlaceSeeder extends Seeder
             [
                 'division_id'   => '',
                 'placename'     => 'Shwedagon Pagoda',
-                'City'          => 'Yangon',
+                'city'          => 'Yangon',
+                'fileimage'     =>  '',
                 'township'      => 'San Chaung',
                 'type'          => 'Pagoda',
-                'mark'          =>  'Shwedagon Pagoda is the most well-known pagoda in Myanmar.'
+                'note'          =>  'Shwedagon Pagoda is the most well-known pagoda in Myanmar.',
+                'lat'           =>  '1234',
+                'long'          =>  '6757867',
             ]
         ]);
     }

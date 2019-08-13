@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Admin extends Migration
+class Dashboard extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class Admin extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('admins');
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('dashboards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('fileimage')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('admin_id');
+            $table->string('division_id');
+            $table->string('place_id');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class Admin extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('dashboards');
     }
 }

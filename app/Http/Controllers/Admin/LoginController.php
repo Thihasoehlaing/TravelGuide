@@ -29,10 +29,8 @@ class LoginController extends BaseController
             if (Hash::check($request->password, $admin->password)) {
                 $this->clearLoginAttempts($request);
                 //dd(auth('admin')->check());
-                //dd($admin);
                 auth('admin')->login($admin);
                 //dd(auth('admin')->user());
-                //dd($admin);
                 return $admin;
             }
         }
@@ -41,6 +39,7 @@ class LoginController extends BaseController
 
     public function loginResponse()
     {
+        
         return redirect()->route('admin.dashboard');
     }
 

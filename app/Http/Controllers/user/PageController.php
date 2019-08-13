@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\user;
 
 use Illuminate\Http\Request;
+use App\Model\Divisions;
 use App\Model\Places;
+use App\Model\Placetype;
 
 class PageController extends BaseController
 {
     public function home()
     {
-        return $this->view('home');
+        $divisionview  = Divisions::all();
+        return $this->view('home', compact('divisionview'));
     }
     public function homepage()
     {

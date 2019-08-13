@@ -16,8 +16,11 @@ class Divisions extends Migration
         Schema::create('divisions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('divisionname');
-            $table->string('City');
-            $table->string('zip code')->nullable();
+            $table->string('city');
+            $table->string('fileimage');
+            $table->string('zip_code')->nullable();
+            $table->string('lat');
+            $table->string('long');
             $table->timestamps();
         });
     }

@@ -17,10 +17,13 @@ class Places extends Migration
             $table->bigIncrements('id');
             $table->integer('division_id');
             $table->string('placename');
-            $table->string('City');
+            $table->string('city');
             $table->string('township');
-            $table->string('type');
-            $table->text('mark');
+            $table->string('fileimage');
+            $table->integer('placetype_id');
+            $table->text('note');
+            $table->string('lat');
+            $table->string('long');
             $table->timestamps();
         });
     }

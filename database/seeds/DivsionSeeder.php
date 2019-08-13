@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Model\Divisions;
 
 class DivsionSeeder extends Seeder
 {
